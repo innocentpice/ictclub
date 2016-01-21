@@ -1,0 +1,15 @@
+@font-face {
+    font-family: brand;
+    src: url('../fonts/brand.ttf');
+}
+#brand {
+    font-family: brand;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+}
+#brand:hover {
+    background: #e7e7e7;
+}
+body {
+    background: #ECF0F1;    
+}
