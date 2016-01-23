@@ -2,10 +2,17 @@
   "name": "computersite",
   "version": "1.0.0",
   "description": "computerclub @ KMUTNB RAYONG",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "compression": "^1.6.1",
+    "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.13.3",
-    "mysql": "^2.9.0"
+    "express-validator": "^2.19.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.6.1",
+    "mysql": "^2.9.0",
+    "node-sass-middleware": "^0.9.7"
   },
   "devDependencies": {},
   "scripts": {

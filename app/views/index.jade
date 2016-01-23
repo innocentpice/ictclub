@@ -1,0 +1,97 @@
+extends ./layout.jade
+
+block content
+
+    nav.navbar.navbar-default.navbar-static-top
+        .container
+            .navbar-header
+                button(type='button',data-toggle='collapse',data-target='#header-navbar-collapse-1',aria-expanded='false').navbar-toggle.collapsed
+                    span.sr-only  Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a(href='./')#brand.navbar-brand IctClub.
+                
+            div#header-navbar-collapse-1.collapse.navbar-collapse
+                ul.nav.navbar-nav.text-center
+                    li.active
+                        a(href='#') หน้าแรก
+                    li
+                        a(href='#') ประวัติชมรม
+                    li
+                        a(href='#') ผลงานของเรา
+                    li
+                        a(href='#') ติดต่อเรา
+                ul.nav.navbar-nav.navbar-right.text-center
+                    li.dropdown
+                        button(type="button", data-toggle="modal", data-target="#myModal").btn.btn-info.navbar-btn
+                            span.glyphicon.glyphicon-log-in
+                            span &nbsp;&nbsp;เข้าสู่ระบบ
+                            
+    .container
+        if MsgWarning
+            .alert.alert-warning.alert-dismissible(role="alert")
+                button(type="button", data-dismiss="alert", aria-label="Close").close
+                    span(aria-hidden="true") &times;
+                strong Warning!
+                | &nbsp;&nbsp;#{MsgWarning}
+    
+        .col-sm-6.hidden-xs
+            img(src="/img/img-1.png",style="margin-top:22px;").col-xs-12
+        .col-xs-12.col-sm-6
+            h3.text-center.clearfix
+                span.glyphicon.glyphicon-edit
+                | &nbsp;&nbsp;กรอกรายละเอียดเพื่อสมัครสมาชิกชมรม
+            form(method="get",action="#")
+                .form-group.clearfix
+                    .col-xs-6
+                        input#regis-name.form-control(type="text",name="Name",placeholder="ชื่อ")
+                    .col-xs-6    
+                        input#regis-surname.form-control(type="text",name="Surname",placeholder="นามสกุล")
+                .form-group.clearfix
+                    .col-xs-12
+                        input#regis-email.form-control(type="email",name="Email",placeholder="Email Address")
+                .form-group.clearfix
+                    .col-xs-12
+                        input#regis-password.form-control(type="password",name="Password",placeholder="Password")
+                .form-group.clearfix
+                    .col-xs-12
+                        input#regis-password-again.form-control(type="password",name="PasswordAgain",placeholder="Re - Enter Password")
+                .form-group.clearfix
+                    .col-xs-12
+                        input#regis-birthday.form-control(type="date",name="Birthday",placeholder="Birthday")
+                .form-group.clearfix
+                    .col-xs-12
+                        button.btn.btn-primary.btn-block(type="submit")
+                            span.glyphicon.glyphicon-save
+                            | &nbsp;&nbsp;ยืนยันการสมัคร
+    
+    #myModal.modal.fade(role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button(type="button", data-dismiss="modal").close &times;
+                    h4.modal-title.text-center
+                        | เข้าสู้ระบบ
+                .modal-body
+                    form.form-horizontal(role="form", action="/login", method="POST")
+                        .form-group
+                            label.control-label.col-sm-2(for="email") Email:
+                            .col-sm-10
+                                input(name="email", type="email", placeholder="Enter email")#email.form-control
+                    
+                        .form-group
+                            label.control-label.col-sm-2(for="pwd") Password:
+                            .col-sm-10         
+                                input(name="password", type="password", placeholder="Enter password")#pwd.form-control
+                        .form-group       
+                            .col-sm-offset-2.col-sm-10
+                                .checkbox
+                                    label
+                                        input(name="remember", type="checkbox")
+                                        | Remember me
+                        .form-group      
+                            .col-sm-offset-2.col-sm-10
+                                button(type="submit").btn.btn-info.btn-lg Login
+                .modal-footer
+                    button(type="button", data-dismiss="modal").btn.btn-default Close
